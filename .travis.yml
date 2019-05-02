@@ -3,12 +3,14 @@ language: c
 sudo: required
 
 before_install:
-  - echo "yes" | sudo add-apt-repository ppa:avsm/ppa
+  - sudo add-apt-repository --yes ppa:avsm/ppa
   - sudo apt update
   - sudo apt install opam
   - export OPAMYES=1      # answer all questions of opam with 'y'
   #- export OPAMVERBOSE=1
-  - opam init
+  - opam init --bare
+  - opam switch create ocaml.4.05.0
+  - eval $(opam env)
   - opam install -v alba
 
 script: bash -ex script.sh
