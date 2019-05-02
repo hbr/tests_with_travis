@@ -1,0 +1,18 @@
+language: c
+
+sudo: required
+
+before_install:
+  - echo "yes" | sudo add-apt-repository ppa:avsm/ppa
+  - sudo apt update
+  - sudo apt install opam
+  - opam init -y 
+  - opam install -y alba
+
+script: bash -ex script.sh
+
+env:
+  - ENVIRONMENT_1=1
+
+os:
+  - linux
