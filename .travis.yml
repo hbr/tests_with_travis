@@ -6,8 +6,10 @@ before_install:
   - echo "yes" | sudo add-apt-repository ppa:avsm/ppa
   - sudo apt update
   - sudo apt install opam
-  - opam init -y 
-  - opam install -y alba
+  - export OPAMYES=1      # answer all questions of opam with 'y'
+  #- export OPAMVERBOSE=1
+  - opam init
+  - opam install -v alba
 
 script: bash -ex script.sh
 
